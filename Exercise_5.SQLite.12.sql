@@ -35,6 +35,7 @@ SELECT
     / SUM(user_orders.qty_orders_u), 2) AS percentage_orders_in_top_100
 FROM user_orders
 LEFT JOIN top_restaurants ON user_orders.restaurant_id = top_restaurants.restaurant_id
+WHERE top_restaurants.restaurant_id IS NOT NULL 
 GROUP BY user_orders.user_id
 ORDER BY qty_orders_in_top_100 DESC
 
